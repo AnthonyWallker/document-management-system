@@ -15,22 +15,22 @@ services:
       DATABASE_PASSWORD: 01690174357Dsa
       DATABASE_NAME: documents_db
     volumes:
-      -.:/usr/src/app
+      - .:/usr/src/app
       - /usr/src/app/node_modules
     command: npm run start:dev
   
-postgres:
-  image: postgres:15
-  container_name: postgres_container
-  restart: always
-  environment:
-    POSTGRES_USER: admin
-    POSTGRES_PASSWORD: 01690174357Dsa
-    POSTGRES_DB: documents_db
-  ports:
-    - "5432:5432"
-  volumes:
-    - postgres_data:/var/lib/postgresql/data
+  postgres:
+    image: postgres:15
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 01690174357Dsa
+      POSTGRES_DB: documents_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
 volumes:
   postgres_data:
