@@ -1,0 +1,20 @@
+{
+  "name": "document-management-system",
+  "version": "1.0.0",
+  "description": "Backend for document management system (NestJS+PostgreSQL+Docker)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnthonyWallker/document-management-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnthonyWallker/document-management-system/issues"
+  },
+  "homepage": "https://github.com/AnthonyWallker/document-management-system#readme"
+}
