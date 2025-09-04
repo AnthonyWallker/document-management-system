@@ -1,32 +1,31 @@
 version: '3.9'
+
 services:
   backend:
-
-    container_name: nestjs_app
     build: .
+    container_name: nest-backend
     ports:
       - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     depends_on:
       - postgres
     environment:
       DATABASE_HOST: postgres
       DATABASE_PORT: 5432
-      DATABASE_USER: admin
-      DATABASE_PASSWORD: 01690174357Dsa
-      DATABASE_NAME: documents_db
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-    command: npm run start:dev
-  
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_NAME: documents
+
   postgres:
-    image: postgres:15
-    container_name: postgres_container
+    image: postgres:14
+    container_name: postgres-db
     restart: always
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: 01690174357Dsa
-      POSTGRES_DB: documents_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: documents
     ports:
       - "5432:5432"
     volumes:

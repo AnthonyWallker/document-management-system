@@ -1,21 +1,23 @@
-# Використаємо офіційний Node.js образ
+
 FROM node:18
 
-# Робоча директорія всередині контейнера
+# Робоча директорія
 WORKDIR /usr/src/app
 
-# Скопіювати package.json і package-lock.json
+# Спочатку копіюємо package.json, щоб кешувати залежності
 COPY package*.json ./
 
-# Встановити залежності
+# Встановлюємо NestJS CLI глобально (щоб працював start:dev)
 RUN npm install -g @nestjs/cli
+
+# Встановлюємо залежності
 RUN npm install
 
-# Скопіювати весь код
+# Копіюємо весь проєкт
 COPY . .
 
-# Відкрити порт
-# EXPOSE 3000
+# Відкриваємо порт
+EXPOSE 3000
 
-# Команда запуску
+# Запускаємо у dev режимі
 CMD ["npm", "run", "start:dev"]
